@@ -19,6 +19,7 @@ jobs:
       - name: Build app
         working-directory: ./
         run: |
+          chmod 777 app/google-services.json
           if [ ! -f "gradlew" ]; then gradle wrapper; fi
           chmod +x gradlew
           ./gradlew assembleDebug --stacktrace

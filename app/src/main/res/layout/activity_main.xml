@@ -61,10 +61,7 @@
 				android:text="@string/btn_send_token"
 				android:onClick="sendToken"/>
 
-			<Button
-				style="@style/CustomButton"
-				android:text="@string/btn_send_tokens"
-				android:onClick="sendTokens"/>
+			
 
 			<Button
 				style="@style/CustomButton"

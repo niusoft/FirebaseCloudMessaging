@@ -30,7 +30,7 @@ import java.util.Scanner;
 import static com.example.fcm.R.id.txt;
 
 public class MainActivity extends AppCompatActivity {
-	private static final String AUTH_KEY = "key=YOUR-SERVER-KEY";
+	private static final String AUTH_KEY = "key=AAAAQV1Oa0s:APA91bE-9LxKlHNOHjoMp5Mv5JFXGCoxL0he9duCCJIsL3Bo_AIqQL6Ra4Lbgdczv2O7BEtOx-0ZzfXx0B6U8x0Trs_5npih9TD6g2zzZwqxe0geOAA5KyTHwWUK36uQVQAOB4lDUCzR";
 	private TextView mTextView;
 	private String token;
 
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 			@Override
 			public void onComplete(@NonNull Task<InstanceIdResult> task) {
 				if (!task.isSuccessful()) {
-					token = task.getException().getMessage();
+					token = task.getException().toString();
 					Log.w("FCM TOKEN Failed", task.getException());
 				} else {
 					token = task.getResult().getToken();
@@ -158,6 +158,7 @@ public class MainActivity extends AppCompatActivity {
 			});
 		} catch (JSONException | IOException e) {
 			e.printStackTrace();
+			mTextView.setText(e.toString());
 		}
 	}
 

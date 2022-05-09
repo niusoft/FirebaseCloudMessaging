@@ -49,5 +49,3 @@ proguard/
 *.jks
 
 .externalNativeBuild
-
-google-services.json

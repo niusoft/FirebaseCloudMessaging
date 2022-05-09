@@ -40,7 +40,9 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 	private void sendNotification(RemoteMessage.Notification notification, Map<String, String> data) {
 		Bundle bundle = new Bundle();
 		//bundle.putString(FCM_PARAM, data.get(FCM_PARAM));
-		bundle.putSerializable("data", data);
+		for (String key : data.keySet()) {
+			bundle.putString(key, data.get(key));
+		}
 
 		Intent intent = new Intent(this, SecondActivity.class);
 		intent.putExtras(bundle);

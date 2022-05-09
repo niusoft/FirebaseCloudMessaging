@@ -14,9 +14,8 @@ public class SecondActivity extends AppCompatActivity {
 
 		Bundle bundle = getIntent().getExtras();
 		if (bundle != null) {
-            Map<String, String> data = bundle.putSerializable("data");
-			for (String key : data.keySet()) {
-				Object value = data.get(key);
+			for (String key : bundle.keySet()) {
+				Object value = bundle.get(key);
 				txt.append(key + ": " + value + "\n\n");
 			}
 		}

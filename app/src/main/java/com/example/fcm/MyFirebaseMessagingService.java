@@ -44,7 +44,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 			bundle.putString(key, data.get(key));
 		}
 
-		Intent intent = new Intent(this, SecondActivity.class);
+		Intent intent = new Intent(this, MainActivity.class);
 		intent.putExtras(bundle);
 
 		PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);

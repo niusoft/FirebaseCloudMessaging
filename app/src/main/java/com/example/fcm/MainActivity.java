@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
 		}
 		
 		apkName = this.getPackageName();
-		PackageInfo akpInfo = this.getPackageManager().getPackageInfo(apkName, 0);
+		PackageInfo apkInfo = this.getPackageManager().getPackageInfo(apkName, 0);
 		verName = apkInfo.versionName;
 
 		FirebaseInstanceId.getInstance().getInstanceId().addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {

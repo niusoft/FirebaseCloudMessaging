@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
 	}
 
 	public void showToken(View view) {
-		mTextView.setText(token + "\n\n\n" + apkName + " : " + verName);
+		mTextView.setText(token + "\n\nBuild by lilac\n\n" + apkName + " : " + verName);
 	}
 
 	public void subscribe(View view) {
@@ -125,7 +125,8 @@ public class MainActivity extends AppCompatActivity {
 			jNotification.put("click_action", "NOTIFY");
 			jNotification.put("icon", "ic_notification");
 
-			jData.put("picture", "https://miro.medium.com/max/1400/1*QyVPcBbT_jENl8TGblk52w.png");
+			//jData.put("picture", "https://miro.medium.com/max/1400/1*QyVPcBbT_jENl8TGblk52w.png");
+			jData.put("picture", "https://img2.baidu.com/it/u=3532878409,135137021&fm=253");
 
 			switch(type) {
 				case "tokens":

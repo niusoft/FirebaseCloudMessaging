@@ -72,11 +72,12 @@ public class MainActivity extends AppCompatActivity {
 	}
 
 	public void showToken(View view) {
-		apkName = this.getPackageName();
-		PackageManager pm = this.getPackageManager();
-		PackageInfo apkInfo = pm.getPackageInfo(apkName, 0);
-		verName = apkInfo.versionName;
-		mTextView.setText(token + "\n\n\n" + apkName + " : " + verName);
+        try {
+            apkName = this.getPackageName();
+            verName = this.getPackageManager().getPackageInfo(apkName, 0).versionName;
+        }
+        catch (Exception e) {}
+		mTextView.setText(token + "\n\n\n" + apkName + " " + verName);
 	}
 
 	public void subscribe(View view) {

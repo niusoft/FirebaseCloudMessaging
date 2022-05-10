@@ -73,9 +73,10 @@ public class MainActivity extends AppCompatActivity {
 
 	public void showToken(View view) {
 		apkName = this.getPackageName();
-		PackageInfo apkInfo = this.getPackageManager().getPackageInfo(apkName, 0);
+		PackageManager pm = this.getPackageManager();
+		PackageInfo apkInfo = pm.getPackageInfo(apkName, 0);
 		verName = apkInfo.versionName;
-		mTextView.setText(apkName + " : " + verName);
+		mTextView.setText(token + "\n\n\n" + apkName + " : " + verName);
 	}
 
 	public void subscribe(View view) {

@@ -19,8 +19,9 @@ jobs:
       - name: Setup env
         run: |
           DT=$(date "+%y%j")`echo $(date "+%k%M")`
-          VER=${DT:1}
-          sed "s/versionCode 1/versionCode $VER/" -i ./app/build.gradle
+          VER1=${DT:1}
+          VER2=$(date "+%Y.%j.")`echo $(date "+%k%M")`
+          sed -e "s/versionCode 1/versionCode $VER1/" -e "s/lilac/$VER2/" -i ./app/build.gradle
           cat ./app/build.gradle
           
       - name: Build app

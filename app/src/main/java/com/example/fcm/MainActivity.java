@@ -55,15 +55,10 @@ public class MainActivity extends AppCompatActivity {
 			}
 			mTextView.setText(tmp);
 		}
-		
-		apkName = this.getPackageName();
-		PackageInfo apkInfo = this.getPackageManager().getPackageInfo(apkName, 0);
-		verName = apkInfo.versionName;
 
 		FirebaseInstanceId.getInstance().getInstanceId().addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
 			@Override
 			public void onComplete(@NonNull Task<InstanceIdResult> task) {
-				mTextView.setText(apkName + " : " + verName);
 				if (!task.isSuccessful()) {
 					token = task.getException().toString();
 					Log.w("FCM TOKEN Failed", task.getException());
@@ -71,12 +66,16 @@ public class MainActivity extends AppCompatActivity {
 					token = task.getResult().getToken();
 					Log.i("FCM TOKEN", token);
 				}
+ 				mTextView.setText(token);
 			}
 		});
 	}
 
 	public void showToken(View view) {
-		mTextView.setText(token);
+		apkName = this.getPackageName();
+		PackageInfo apkInfo = this.getPackageManager().getPackageInfo(apkName, 0);
+		verName = apkInfo.versionName;
+		mTextView.setText(apkName + " : " + verName);
 	}
 
 	public void subscribe(View view) {

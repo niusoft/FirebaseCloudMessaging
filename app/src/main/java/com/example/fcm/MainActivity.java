@@ -7,6 +7,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -32,6 +36,8 @@ import static com.example.fcm.R.id.txt;
 public class MainActivity extends AppCompatActivity {
 	private static final String AUTH_KEY = "key=AAAAQV1Oa0s:APA91bE-9LxKlHNOHjoMp5Mv5JFXGCoxL0he9duCCJIsL3Bo_AIqQL6Ra4Lbgdczv2O7BEtOx-0ZzfXx0B6U8x0Trs_5npih9TD6g2zzZwqxe0geOAA5KyTHwWUK36uQVQAOB4lDUCzR";
 	private TextView mTextView;
+	private String apkName;
+	private String verName;
 	private String token;
 
 	@Override
@@ -49,10 +55,14 @@ public class MainActivity extends AppCompatActivity {
 			}
 			mTextView.setText(tmp);
 		}
+		
+		apkName = this.getPackageName();
+		verName = this.getPackageManager().getPackageInfo(apkName, 0).versionName;
 
 		FirebaseInstanceId.getInstance().getInstanceId().addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
 			@Override
 			public void onComplete(@NonNull Task<InstanceIdResult> task) {
+				mTextView.setText(apkName + " : " + verName);
 				if (!task.isSuccessful()) {
 					token = task.getException().toString();
 					Log.w("FCM TOKEN Failed", task.getException());

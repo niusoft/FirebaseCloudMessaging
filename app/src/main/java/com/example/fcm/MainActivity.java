@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
             verName = this.getPackageManager().getPackageInfo(apkName, 0).versionName;
         }
         catch (Exception e) {}
-		mTextView.setText(token + "\n\n\n" + apkName + " " + verName);
+		mTextView.setText(token + "\n\n\n" + apkName + " : " + verName);
 	}
 
 	public void subscribe(View view) {
@@ -123,7 +123,6 @@ public class MainActivity extends AppCompatActivity {
 			jNotification.put("click_action", "NOTIFY");
 			jNotification.put("icon", "ic_notification");
 
-			jData.put("from", token.split(":")[0]);
 			jData.put("picture", "https://miro.medium.com/max/1400/1*QyVPcBbT_jENl8TGblk52w.png");
 
 			switch(type) {
@@ -135,6 +134,7 @@ public class MainActivity extends AppCompatActivity {
 					break;
 				case "topic":
 					jPayload.put("to", "/topics/news");
+					jData.put("from", token.split(":")[0]);
 					break;
 				case "condition":
 					jPayload.put("condition", "'sport' in topics || 'news' in topics");

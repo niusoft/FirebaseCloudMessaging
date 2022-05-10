@@ -104,11 +104,11 @@ public class MainActivity extends AppCompatActivity {
 		JSONObject jNotification = new JSONObject();
 		JSONObject jData = new JSONObject();
 		try {
-			jNotification.put("title", "Google I/O 2016");
+			jNotification.put("title", "Send " + type);
 			jNotification.put("body", "Firebase Cloud Messaging (App)");
 			jNotification.put("sound", "default");
 			jNotification.put("badge", "1");
-			jNotification.put("click_action", "OPEN_ACTIVITY_1");
+			jNotification.put("click_action", "NOTIFY");
 			jNotification.put("icon", "ic_notification");
 
 			jData.put("from", token);

@@ -3,6 +3,8 @@ package com.example.fcm;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import android.widget.TextView;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class SecondActivity extends AppCompatActivity {
 	@Override

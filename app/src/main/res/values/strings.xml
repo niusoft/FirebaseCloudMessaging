@@ -1,5 +1,5 @@
 <resources>
-	<string name="app_name">FCM (Test By Lilac)</string>
+	<string name="app_name">FCM TEST</string>
 	<string name="btn_send_token">Send Token</string>
 	<string name="btn_send_tokens">Send Tokens</string>
 	<string name="btn_send_topic">Send Topic</string>

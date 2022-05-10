@@ -45,6 +45,13 @@ public class MainActivity extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		mTextView = findViewById(txt);
+		
+		try {
+			apkName = this.getPackageName();
+			verName = this.getPackageManager().getPackageInfo(apkName, 0).versionName;
+		}
+		catch (Exception e) {}
+		mTextView.setText("\n\nBuild by lilac\n\n" + apkName + " : " + verName);
 
 		Bundle bundle = getIntent().getExtras();
 		if (bundle != null) {
@@ -72,11 +79,6 @@ public class MainActivity extends AppCompatActivity {
 	}
 
 	public void showToken(View view) {
-        try {
-            apkName = this.getPackageName();
-            verName = this.getPackageManager().getPackageInfo(apkName, 0).versionName;
-        }
-        catch (Exception e) {}
 		mTextView.setText(token + "\n\n\n" + apkName + " : " + verName);
 	}
 
@@ -132,15 +134,14 @@ public class MainActivity extends AppCompatActivity {
 					ja.put(token);
 					jPayload.put("registration_ids", ja);
 					break;
-				case "topic":
-					jPayload.put("to", "/topics/news");
-					jData.put("from", token.substring(0,5));
+				case "token":
+					jPayload.put("to", token);
 					break;
 				case "condition":
 					jPayload.put("condition", "'sport' in topics || 'news' in topics");
 					break;
 				default:
-					jPayload.put("to", token);
+					jPayload.put("to", "/topics/news");
 			}
 
 			jPayload.put("priority", "high");

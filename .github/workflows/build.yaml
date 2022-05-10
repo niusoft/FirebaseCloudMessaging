@@ -20,7 +20,8 @@ jobs:
         run: |
           DT=$(date "+%y%j")`echo $(date "+%k%M")`
           VER=${DT:1}
-          sed -e 's|versionCode 1|versionCode ${VER}|' -i ./app/build.gradle
+          sed 's|versionCode 1|versionCode $VER' -i ./app/build.gradle
+          cat ./app/build.gradle
           
       - name: Build app
         working-directory: ./

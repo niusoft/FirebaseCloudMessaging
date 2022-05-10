@@ -14,6 +14,8 @@ public class SecondActivity extends AppCompatActivity {
 
 		Bundle bundle = getIntent().getExtras();
 		if (bundle != null) {
+			SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			txt.append("\n\n-=> " + df.format(new Date()) + "\n\n");
 			for (String key : bundle.keySet()) {
 				Object value = bundle.get(key);
 				txt.append(key + ": " + value + "\n\n");

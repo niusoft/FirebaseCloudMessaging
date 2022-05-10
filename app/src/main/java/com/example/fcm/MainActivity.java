@@ -111,7 +111,6 @@ public class MainActivity extends AppCompatActivity {
 			jNotification.put("click_action", "OPEN_ACTIVITY_1");
 			jNotification.put("icon", "ic_notification");
 
-			jData.put("time", System.currentTimeMillis());
 			jData.put("from", token);
 			jData.put("picture", "https://miro.medium.com/max/1400/1*QyVPcBbT_jENl8TGblk52w.png");
 

@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
 					break;
 				case "topic":
 					jPayload.put("to", "/topics/news");
-					jData.put("from", token.subString(0,5));
+					jData.put("from", token.substring(0,5));
 					break;
 				case "condition":
 					jPayload.put("condition", "'sport' in topics || 'news' in topics");
